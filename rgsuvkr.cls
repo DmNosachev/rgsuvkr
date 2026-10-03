@@ -151,8 +151,8 @@ sortcites=true,
 
 \RequirePackage{color}
 \RequirePackage{graphicx}
+\graphicspath{{images/}}
 
-\RequirePackage{pgfplots}
 
 \RequirePackage[dvipsnames]{xcolor}
 
@@ -183,6 +183,11 @@ sortcites=true,
 
 \SetupFloatingEnvironment{listing}{name=Листинг}
 \newenvironment{longlisting}{\captionsetup{type=listing}}{}
+
+% Нумерация, счетчики
+
+\renewcommand{\thelisting}{\arabic{listing}}
+\renewcommand{\thefigure}{\arabic{figure}}
 
 \RequirePackage{placeins}
 
@@ -223,30 +228,35 @@ sortcites=true,
   {\parindent=1.5em\relax}
   {}
 
+\titlespacing*{\chapter}
+    {0pt} % left
+    {0pt} % before
+    {0pt} % after
+
 
 
 \titlecontents{chapter}
-  [0pt] % отступ слева (0pt = без отступа)
-  {\vspace{1.5ex}\normalfont} % формат перед записью
-  {\contentslabel{1.5em}\MakeUppercase} % формат пронумерованной записи
+  [2em] % отступ слева (0pt = без отступа)
+  {\addvspace{1.5ex}\normalfont} % формат перед записью
+  {\contentslabel[{\thecontentslabel.}]{1em}\MakeUppercase} % формат пронумерованной записи
   {\hspace*{-1.5em}\MakeUppercase} % формат ненумерованной записи
-  {\titlerule*[0.8pc]{.}\contentspage} % заполнитель точками и номер страницы
+  {\titlerule*[0.5pc]{.}\contentspage} % заполнитель точками и номер страницы
 
 % Раздел: обычный шрифт, небольшой отступ
 \titlecontents{section}
-  [1.5em] % отступ слева
-  {\vspace{0.5ex}\normalfont}
-  {\contentslabel{1.5em}}
+  [3.5em] % отступ слева
+  {\addvspace{0.5ex}\normalfont}
+  {\contentslabel[{\thecontentslabel.}]{1.7em}}
   {\hspace*{-1.5em}}
-  {\titlerule*[0.8pc]{.}\contentspage}
+  {\titlerule*[0.5pc]{.}\contentspage}
 
 % Подраздел: обычный шрифт, чуть больший отступ
 \titlecontents{subsection}
-  [2.5em] % отступ слева
-  {\vspace{0.5ex}\normalfont}
-  {\contentslabel{2.5em}}
+  [4.5em] % отступ слева
+  {\addvspace{0.5ex}\normalfont}
+  {\contentslabel[{\thecontentslabel.}]{2.5em}}
   {\hspace*{-2.5em}}
-  {\titlerule*[0.8pc]{.}\contentspage}
+  {\titlerule*[0.5pc]{.}\contentspage}
 
 
 
