@@ -89,6 +89,8 @@
 \setromanfont{erewhon}
 \setmonofont{Liberation Mono}
 
+\newfontfamily\cyrillicfontsf{erewhon}
+
 \RequirePackage[%
 backend=biber,
 bibencoding=utf8,
@@ -165,6 +167,7 @@ sortcites=true,
 \DefTblrTemplate{contfoot-text}{default}{Продолжение на следующей странице}
 \DefTblrTemplate{conthead-text}{default}{(Продолжение таблицы)}
 
+
 \RequirePackage[labelfont={small}, textfont={small}]{caption}
 
 \RequirePackage{lscape}
@@ -189,6 +192,10 @@ sortcites=true,
 \renewcommand{\thelisting}{\arabic{listing}}
 \renewcommand{\thefigure}{\arabic{figure}}
 
+\RequirePackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
 \RequirePackage{placeins}
 
 \RequirePackage{amsmath}
@@ -197,6 +204,9 @@ sortcites=true,
 %\setmathfont[Scale=MatchLowercase, StylisticSet={3,4}]{Erewhon Math}
 \setmathfont[Scale=MatchLowercase, StylisticSet=2]{NewCMMath-Book}
 
+\RequirePackage{siunitx}
+\sisetup{detect-all, range-units = single, range-phrase= \text{--}, per-mode=symbol, output-decimal-marker = {,}}
+
 % прямые начертания для констант, i и d
 \def\eu{\ensuremath{\mathrm{e}}}
 \def\iu{\ensuremath{\mathrm{i}}}
@@ -204,6 +214,7 @@ sortcites=true,
 
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{titletoc}
+
 
 \titleformat{\chapter}[block]
   {\centering\bfseries} % Формат: центр, жирный, верхний регистр, запрет переносов
@@ -228,16 +239,18 @@ sortcites=true,
   {\parindent=1.5em\relax}
   {}
 
+
+
 \titlespacing*{\chapter}
     {0pt} % left
     {0pt} % before
-    {0pt} % after
+    {2em} % after
 
 
 
 \titlecontents{chapter}
   [2em] % отступ слева (0pt = без отступа)
-  {\addvspace{1.5ex}\normalfont} % формат перед записью
+  {\addvspace{1.5ex}\normalfont\filright} % формат перед записью
   {\contentslabel[{\thecontentslabel.}]{1em}\MakeUppercase} % формат пронумерованной записи
   {\hspace*{-1.5em}\MakeUppercase} % формат ненумерованной записи
   {\titlerule*[0.5pc]{.}\contentspage} % заполнитель точками и номер страницы
@@ -245,7 +258,7 @@ sortcites=true,
 % Раздел: обычный шрифт, небольшой отступ
 \titlecontents{section}
   [3.5em] % отступ слева
-  {\addvspace{0.5ex}\normalfont}
+  {\addvspace{0.5ex}\normalfont\filright}
   {\contentslabel[{\thecontentslabel.}]{1.7em}}
   {\hspace*{-1.5em}}
   {\titlerule*[0.5pc]{.}\contentspage}
@@ -253,7 +266,7 @@ sortcites=true,
 % Подраздел: обычный шрифт, чуть больший отступ
 \titlecontents{subsection}
   [4.5em] % отступ слева
-  {\addvspace{0.5ex}\normalfont}
+  {\addvspace{0.5ex}\normalfont\filright}
   {\contentslabel[{\thecontentslabel.}]{2.5em}}
   {\hspace*{-2.5em}}
   {\titlerule*[0.5pc]{.}\contentspage}
