@@ -252,7 +252,7 @@ sortcites=true,
   [2em] % отступ слева (0pt = без отступа)
   {\addvspace{1.5ex}\normalfont\filright} % формат перед записью
   {\contentslabel[{\thecontentslabel.}]{1em}\MakeUppercase} % формат пронумерованной записи
-  {\hspace*{-1.5em}\MakeUppercase} % формат ненумерованной записи
+  {\hspace*{-1em}\MakeUppercase} % формат ненумерованной записи
   {\titlerule*[0.5pc]{.}\contentspage} % заполнитель точками и номер страницы
 
 % Раздел: обычный шрифт, небольшой отступ
